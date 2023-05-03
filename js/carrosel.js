@@ -3,23 +3,9 @@ import {GetAllCharacters} from "./api.js"
 
 const allCharacters  = await GetAllCharacters()
 const protagonist  =  await GetSomeCharacter(1,2,3,4)
-const click = document.getElementById('click')
-let c1 = 0
-let c2 = 1
-let c3 = 2
-let c4 = 3
 
 
-    click.addEventListener('click', async function(){
-        const protagonist2  =  await GetSomeCharacter(c1,c2,c3,c4)
-        c1++
-        c2++
-        c3++
-        c4++
-        
-        return protagonist2
-       
-      })
+
 
 
 
