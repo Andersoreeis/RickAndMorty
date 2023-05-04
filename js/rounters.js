@@ -1,7 +1,8 @@
 const routes = {
     '/home': './pages/home.html',
+    '/about': './pages/about.html',
     '/character': './pages/character.html',
-    '/episode': './pages/episode.html',
+   
     
   };
 

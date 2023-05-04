@@ -72,12 +72,11 @@ const createCardCharacter = (protagonist)=>{
     characterCard.append(characterImg, characterData)
     characterImg.append(img)
 
-    characterData.append(characterName,characterStatus, characterFirstLocation, characterLastLocation)
+    characterData.append(characterName,characterStatus, characterFirstLocation, )
 
-    characterStatus.append(statusLife, lifeOrDeadText)
 
-    characterFirstLocation.append(firstViewText, firstlocationText)
-    characterLastLocation.append(lastViewText, lastlocationText)
+    
+  
 
 return characterCard
 

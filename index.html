@@ -8,41 +8,64 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="shortcut icon" href="./img/naveespacial.png" type="image/x-icon" width="30px" height="30px">
-    <link rel="stylesheet" href="./css/characters.css">
+    <link rel="stylesheet" href="./css/protagonist.css">
+    <link rel="stylesheet" href="./css/character.css">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@500&display=swap" rel="stylesheet">
     <title>Rick And Mordy</title>
     <script src="./js/rounters.js" defer type="module"></script>
     <script src="./js//api.js" defer type="module"></script>
-    <script src="./js//carrosel.js" defer type="module"></script>
+    <script src="./js//protagonist.js" defer type="module"></script>
+    <script src="https://kit.fontawesome.com/7dfd3e2b4c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
         <img src="./img/logo2.png" class="logo" alt="">
         <nav>
-            <a href="/index.html" >HOME</a>
-            <a href="/character" onclick="route()">PERSONAGENS</a>
-            <a href="/episode" onclick="route()">EPISODIOS</a>
-            
+            <a href="/index.html">HOME</a>
+            <a href="/about" onclick="route()">ABOUT</a>
+            <a href="/character" onclick="route()"> ALL CHARACTERS</a>
+
+
         </nav>
     </header>
     <main id="root">
-        <div class="container">
-           
-            <div class="content-home">
-                <p class="text-resume">"Rick and Morty" é uma série animada de comédia e ficção científica que segue as aventuras interdimensionais de um avô genial e egoísta, Rick, e seu neto inseguro, Morty. Juntos, eles enfrentam problemas familiares e situações perigosas em diferentes universos paralelos.</p>
-                <div class="button-personagens"><a href="/character" onclick="route()">Ver personagens</a></div>
-            </div>
-            <img src="./img/rick-morty.png" alt="">
-        </div>
-       
-            <div class="carrosel" id="carrosel"></div>
-           
-       
-    </main>
-   
 
-    <footer>@Copwriting Anderson Reis</footer>
+        <div class="container-main">
+            <div class="search-container">
+                <div class="searchbtn">
+                    <input type="text" placeholder="Search characters..." class="search-character">
+                    <button class="btn-search">
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="container">
+
+
+            <div class="content-home">
+                <p class="text-resume">"Rick and Morty" is an animated comedy and science fiction series that follows
+                    the interdimensional adventures of a brilliant and selfish grandfather, Rick, and his insecure
+                    grandson, Morty. Together, they face family issues and dangerous situations in different parallel
+                    universes.</p>
+                <div class="button-personagens"><a href="/character" onclick="route()">See Character</a></div>
+            </div>
+            <div class="container-img">
+                <img src="./img/rick-morty.png" alt="" width="650px" height="650px">
+            </div>
+
+        </div>
+
+        <div class="carrosel" id="carrosel"></div>
+
+
+    </main>
+
+
+    <footer>© 2023, 💻 with ❤ by Anderson Reis.</footer>
 
 </body>
 
