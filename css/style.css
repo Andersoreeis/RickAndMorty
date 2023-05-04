@@ -3,7 +3,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Bungee', cursive;
-    
 }
 :root{
     --color-text-nav:#fff;
@@ -76,10 +75,10 @@ main{
     
     background-color: #f6f6f6;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 50px;
-    height: 400px;
+    height: 600px;
     
 }
 

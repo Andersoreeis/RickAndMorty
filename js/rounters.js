@@ -16,8 +16,7 @@ const route = async ()=>{
     window.history.pushState({},'', window.event.target.href)
     const path = window.location.pathname
   const response = await fetch(routes[path])
-  console.log(response);
-  console.log(path);
+ 
   const html = await response.text()
  
   
