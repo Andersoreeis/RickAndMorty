@@ -3,8 +3,8 @@
 /**API DO RICK AND MORTY */
 
 // Pega todos os personagens
-  export const GetAllCharacters = async () => {
-    const url = `https://rickandmortyapi.com/api/character`
+  export const GetAllCharacters = async (numberPage) => {
+    const url = `https://rickandmortyapi.com/api/character?page=${numberPage}`
     const response = await fetch(url)
     const data = await response.json()
 

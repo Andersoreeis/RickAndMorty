@@ -7,7 +7,8 @@ const routes = {
   };
 
 
-
+  import {loadTable} from './allcharacters.js'
+  const loadingTable = loadTable()
  
 
 const route = async ()=>{
@@ -17,8 +18,12 @@ const route = async ()=>{
     const path = window.location.pathname
   const response = await fetch(routes[path])
  
+  console.log(path);
+  
+
   const html = await response.text()
- 
+  loadingTable
+
   
   
   document.getElementById('root').innerHTML = html
