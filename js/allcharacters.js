@@ -1,8 +1,12 @@
 import { GetAllCharacters } from "./api.js";
 
-const itemsPerPage = 20; // Número de itens por página
-let currentPage = 1; // Página atual
-let allCharacters = null; // Variável para armazenar todos os personagens
+const allCharacters = await GetAllCharacters(1);
+
+for(let i = 0; i < allCharacters.length; i++){
+  console.log(allCharacters);
+  
+}
+
 
 const createTableAllCharacter = (character) => {
   const tableCharacters = document.createElement('div')
@@ -15,6 +19,9 @@ const createTableAllCharacter = (character) => {
   const nameAllCharacter = document.createElement('div')
   nameAllCharacter.classList.add('name-allcharacter')
   nameAllCharacter.textContent = character.name
+  localStorage.setItem('name-allcharacter', character.name)
+  localStorage.setItem('photo-allcharacter', character.image)
+ 
   
   
   const statusAllcharacter = document.createElement('div')
@@ -69,13 +76,10 @@ const createTableAllCharacter = (character) => {
 };
 
 export const loadTable = async () => {
-  allCharacters = await GetAllCharacters(itemsPerPage);
+  
 
-  if (allCharacters.results.length > 0) {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-
-    const table = allCharacters.results.slice(startIndex, endIndex).map(createTableAllCharacter);
+  
+    const table = allCharacters.results.map(createTableAllCharacter);
     const container = await getContainer();
 
     container.innerHTML = ''; // Limpa o conteúdo existente do contêiner
@@ -84,32 +88,39 @@ export const loadTable = async () => {
       container.appendChild(tableElement);
     });
 
-    renderPagination();
-  } else {
-    // Caso não haja resultados, exiba uma mensagem de aviso ou execute uma ação alternativa
-    console.log('Nenhum personagem encontrado.');
-  }
+    // renderPagination();
+ 
 };
 
-function renderPagination() {
-  const totalPages = Math.ceil(allCharacters.results.length / itemsPerPage);
+// function renderPagination() {
+//   const totalPages = Math.ceil(allCharacters.results.length / itemsPerPage);
 
-  const pagination = document.getElementById('pagination');
-  pagination.innerHTML = ''; // Limpa o conteúdo anterior
+//   const pagination = document.getElementById('pagination');
+//   pagination.innerHTML = ''; // Limpa o conteúdo anterior
 
-  for (let i = 1; i <= totalPages; i++) {
-    const pageButton = document.createElement('button');
-    pageButton.textContent = i;
-    pageButton.addEventListener('click', function() {
-      currentPage = parseInt(this.textContent);
-      loadTable(); // Carrega a nova página
-    });
+//   for (let i = 1; i <= totalPages; i++) {
+//     const pageButton = document.createElement('div')
+//     pageButton.classList.add('page');
+//     pageButton.textContent = i;
+//     pageButton.addEventListener('click', function() {
+//       currentPage = parseInt(this.textContent);
+//       loadTable(); // Carrega a nova página
+//     });
 
-    pagination.appendChild(pageButton);
-  }
-}
+//     pagination.appendChild(pageButton);
+//   }
+// }
+
+
 
 // Função auxiliar para obter o contêiner quando estiver disponível
+
+
+function loadButton(){
+  const pagination = document.getElementById('pagination');
+  pagination.innerHTML = ''
+}
+
 function getContainer() {
   return new Promise((resolve) => {
     const checkContainer = () => {
