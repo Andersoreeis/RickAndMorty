@@ -1,33 +1,23 @@
+import { loadInitialPage } from './allcharacters.js';
+
 const routes = {
-    '/home': './pages/home.html',
-    '/about': './pages/about.html',
-    '/character': './pages/character.html',
-   
-    
-  };
+  '/home': './pages/home.html',
+  '/about': './pages/about.html',
+  '/character': './pages/character.html',
+};
 
-
-  import {loadTable} from './allcharacters.js'
-  const loadingTable = loadTable()
- 
-
-const route = async ()=>{
-    
-    window.event.preventDefault()
-    window.history.pushState({},'', window.event.target.href)
-    const path = window.location.pathname
-  const response = await fetch(routes[path])
- 
+const route = async () => {
+  window.event.preventDefault();
+  window.history.pushState({}, '', window.event.target.href);
+  const path = window.location.pathname;
+  const response = await fetch(routes[path]);
   console.log(path);
-  
+  const html = await response.text();
+  document.getElementById('root').innerHTML = html;
 
-  const html = await response.text()
-  loadingTable
-
-  
-  
-  document.getElementById('root').innerHTML = html
-  
-      
+  if (path === '/character') {
+    await loadInitialPage();
   }
-  window.route = route
+};
+
+window.route = route;

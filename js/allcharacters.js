@@ -1,124 +1,148 @@
 import { GetAllCharacters } from "./api.js";
 
-const allCharacters = await GetAllCharacters(1);
+const itemsPerPage = 5; // Número de itens por página
+let currentPage = 1; // Página atual
+let allCharacters; // Variável para armazenar os personagens
 
-for(let i = 0; i < allCharacters.length; i++){
-  console.log(allCharacters);
-  
-}
+const loadTable = async () => {
+  allCharacters = await GetAllCharacters(currentPage);
 
-
-const createTableAllCharacter = (character) => {
-  const tableCharacters = document.createElement('div')
-  tableCharacters.classList.add('table')
-  
-  const imgAllCharacter = document.createElement('img')
-  imgAllCharacter.classList.add('img-allcharacter')
-  imgAllCharacter.src = character.image
-  
-  const nameAllCharacter = document.createElement('div')
-  nameAllCharacter.classList.add('name-allcharacter')
-  nameAllCharacter.textContent = character.name
-  localStorage.setItem('name-allcharacter', character.name)
-  localStorage.setItem('photo-allcharacter', character.image)
- 
-  
-  
-  const statusAllcharacter = document.createElement('div')
-  statusAllcharacter.classList.add('status-allcharacter')
-  
-  
-  
-  const statusDadOrLife = document.createElement('div')
-  statusDadOrLife.classList.add('status-deadOrLife')
-  
-  
-  const statusText = document.createElement('div')
-  statusText.classList.add('status-text')
-  statusText.textContent = character.status
-  
-  if(statusText.textContent == 'Alive'){
-    statusDadOrLife.classList.add('status-deadOrLife', 'color-status-life')
-  }else if(statusText.textContent  == 'unknown'){
-    statusDadOrLife.classList.add('status-deadOrLife', 'color-status-unknown')
-  
-  }else if (statusText.textContent == 'Dead'){
-    statusDadOrLife.classList.add('status-deadOrLife', 'color-status-dead')
-  }else{
-    console.log('erro-status');
+  const createTableAllCharacter = (character) => {
+    const tableCharacters = document.createElement('div')
+    tableCharacters.classList.add('table')
     
-  }
-  
-  
-  const specieAllcharacter = document.createElement('div')
-  specieAllcharacter.classList.add('specie-allcharacter')
-  
-  const iconPerson = document.createElement('i')
-  iconPerson.classList.add('fa-solid', 'fa-person')
-  
-  const iconAlien = document.createElement('i')
-  iconAlien.classList.add('fa-brands', 'fa-optin-monster')
-  
-  
-  tableCharacters.append(imgAllCharacter,nameAllCharacter,statusAllcharacter,specieAllcharacter)
-  statusAllcharacter.append(statusDadOrLife,statusText)
-  
-  if (character.species == 'Human') {
-    specieAllcharacter.append(iconPerson);
-  }else  if (character.species == 'Alien') {
-    specieAllcharacter.append(iconAlien);
-  } else{
-    console.log('erro');
+    const imgAllCharacter = document.createElement('img')
+    imgAllCharacter.classList.add('img-allcharacter')
+    imgAllCharacter.src = character.image
     
-  }
-  
-  return tableCharacters
+    const nameAllCharacter = document.createElement('div')
+    nameAllCharacter.classList.add('name-allcharacter')
+    nameAllCharacter.textContent = character.name
+    localStorage.setItem('name-allcharacter', character.name)
+    localStorage.setItem('photo-allcharacter', character.image)
+   
+    
+    
+    const statusAllcharacter = document.createElement('div')
+    statusAllcharacter.classList.add('status-allcharacter')
+    
+    
+    
+    const statusDadOrLife = document.createElement('div')
+    statusDadOrLife.classList.add('status-deadOrLife')
+    
+    
+    const statusText = document.createElement('div')
+    statusText.classList.add('status-text')
+    statusText.textContent = character.status
+    
+    if(statusText.textContent == 'Alive'){
+      statusDadOrLife.classList.add('status-deadOrLife', 'color-status-life')
+    }else if(statusText.textContent  == 'unknown'){
+      statusDadOrLife.classList.add('status-deadOrLife', 'color-status-unknown')
+    
+    }else if (statusText.textContent == 'Dead'){
+      statusDadOrLife.classList.add('status-deadOrLife', 'color-status-dead')
+    }else{
+      console.log('erro-status');
+      
+    }
+    
+    
+    const specieAllcharacter = document.createElement('div')
+    specieAllcharacter.classList.add('specie-allcharacter')
+    
+    const iconPerson = document.createElement('i')
+    iconPerson.classList.add('fa-solid', 'fa-person')
+    
+    const iconAlien = document.createElement('i')
+    iconAlien.classList.add('fa-brands', 'fa-optin-monster')
+    
+    
+    tableCharacters.append(imgAllCharacter,nameAllCharacter,statusAllcharacter,specieAllcharacter)
+    statusAllcharacter.append(statusDadOrLife,statusText)
+    
+    if (character.species == 'Human') {
+      specieAllcharacter.append(iconPerson);
+    }else  if (character.species == 'Alien') {
+      specieAllcharacter.append(iconAlien);
+    } else if ( character.species == 'Humanoide'){
+      specieAllcharacter.append(iconAlien);
+      
+    }else{
+      specieAllcharacter.append(iconAlien);
+    }
+    
+    return tableCharacters
+  };
+
+  const table = allCharacters.results.map(createTableAllCharacter);
+  const container = await getContainer();
+
+  container.innerHTML = ''; // Limpa o conteúdo existente do contêiner
+
+  table.forEach((tableElement) => {
+    container.appendChild(tableElement);
+  });
+
+  // Mover para a posição da tabela
+  container.scrollIntoView({ behavior: "smooth" });
 };
 
-export const loadTable = async () => {
-  
+function renderPagination() {
+  const totalPages = Math.ceil(allCharacters.info.count / itemsPerPage);
 
-  
-    const table = allCharacters.results.map(createTableAllCharacter);
-    const container = await getContainer();
-
-    container.innerHTML = ''; // Limpa o conteúdo existente do contêiner
-
-    table.forEach((tableElement) => {
-      container.appendChild(tableElement);
-    });
-
-    // renderPagination();
- 
-};
-
-// function renderPagination() {
-//   const totalPages = Math.ceil(allCharacters.results.length / itemsPerPage);
-
-//   const pagination = document.getElementById('pagination');
-//   pagination.innerHTML = ''; // Limpa o conteúdo anterior
-
-//   for (let i = 1; i <= totalPages; i++) {
-//     const pageButton = document.createElement('div')
-//     pageButton.classList.add('page');
-//     pageButton.textContent = i;
-//     pageButton.addEventListener('click', function() {
-//       currentPage = parseInt(this.textContent);
-//       loadTable(); // Carrega a nova página
-//     });
-
-//     pagination.appendChild(pageButton);
-//   }
-// }
-
-
-
-// Função auxiliar para obter o contêiner quando estiver disponível
-
-
-function loadButton(){
   const pagination = document.getElementById('pagination');
-  pagination.innerHTML = ''
+  pagination.innerHTML = ''; // Limpa o conteúdo anterior
+
+  const prevButton = document.createElement('a');
+  prevButton.href = '#';
+  prevButton.textContent = 'Prev';
+  prevButton.addEventListener('click', function(event) {
+    event.preventDefault(); // Impede a ação padrão de seguir o link
+    if (currentPage > 1) {
+      currentPage--;
+      loadTable(); // Carrega a página anterior
+      renderPagination();
+    }
+  });
+  pagination.appendChild(prevButton);
+
+  let startPage = Math.max(1, currentPage - 2);
+  let endPage = Math.min(startPage + 4, totalPages);
+
+  if (endPage - startPage < 4) {
+    startPage = Math.max(1, endPage - 4);
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    const pageButton = document.createElement('a');
+    pageButton.href = '#';
+    pageButton.textContent = i;
+    if (i === currentPage) {
+      pageButton.classList.add('active');
+    }
+    pageButton.addEventListener('click', function(event) {
+      event.preventDefault(); // Impede a ação padrão de seguir o link
+      currentPage = parseInt(this.textContent);
+      loadTable(); // Carrega a nova página
+      renderPagination();
+    });
+    pagination.appendChild(pageButton);
+  }
+
+  const nextButton = document.createElement('a');
+  nextButton.href = '#';
+  nextButton.textContent = 'Next';
+  nextButton.addEventListener('click', function(event) {
+    event.preventDefault(); // Impede a ação padrão de seguir o link
+    if (currentPage < totalPages) {
+      currentPage++;
+      loadTable(); // Carrega a próxima página
+      renderPagination();
+    }
+  });
+  pagination.appendChild(nextButton);
 }
 
 function getContainer() {
@@ -135,4 +159,10 @@ function getContainer() {
   });
 }
 
+// Função para carregar a página inicial
+const loadInitialPage = async () => {
+  await loadTable();
+  renderPagination();
+};
 
+export { loadInitialPage };
