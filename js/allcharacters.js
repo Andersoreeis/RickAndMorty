@@ -1,13 +1,15 @@
 import { GetAllCharacters } from "./api.js";
 
+
+
 const itemsPerPage = 5; // Número de itens por página
 let currentPage = 1; // Página atual
 let allCharacters; // Variável para armazenar os personagens
 
-const loadTable = async () => {
+const loadTable = async () => { // manda os novos elementos
   allCharacters = await GetAllCharacters(currentPage);
 
-  const createTableAllCharacter = (character) => {
+  const createTableAllCharacter = (character) => { // cria os elementos 
     const tableCharacters = document.createElement('div')
     tableCharacters.classList.add('table')
     
@@ -160,9 +162,9 @@ function getContainer() {
 }
 
 // Função para carregar a página inicial
-const loadInitialPage = async () => {
+const loadAllCharacter = async () => {
   await loadTable();
   renderPagination();
 };
 
-export { loadInitialPage };
+export { loadAllCharacter };

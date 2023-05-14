@@ -56,18 +56,7 @@
   
 }
 
-.color-status-dead{
-    background-color: rgb(224, 75, 75);
-}
-.color-status-life{
-    background-color: rgb(169, 233, 74);
-}
-.color-status-unknown{
-    background-color:rgb(233, 233, 71);
-}
-.color-alien{
-    color: rgb(69, 233, 178);
-}
+
 .text-name{
     font-size: 1.7rem;
     color: #fff;
