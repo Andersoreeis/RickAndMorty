@@ -21,7 +21,7 @@ const loadTable = async () => { // manda os novos elementos
     nameAllCharacter.classList.add('name-allcharacter')
     nameAllCharacter.textContent = character.name
     localStorage.setItem('name-allcharacter', character.name)
-    localStorage.setItem('photo-allcharacter', character.image)
+    
    
     
     
@@ -55,10 +55,10 @@ const loadTable = async () => { // manda os novos elementos
     specieAllcharacter.classList.add('specie-allcharacter')
     
     const iconPerson = document.createElement('i')
-    iconPerson.classList.add('fa-solid', 'fa-person')
+    iconPerson.classList.add('fa-solid', 'fa-user')
     
     const iconAlien = document.createElement('i')
-    iconAlien.classList.add('fa-brands', 'fa-optin-monster')
+    iconAlien.classList.add('fa-solid', 'fa-user-astronaut', 'color-alien')
     
     
     tableCharacters.append(imgAllCharacter,nameAllCharacter,statusAllcharacter,specieAllcharacter)

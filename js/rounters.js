@@ -3,23 +3,28 @@ import { loadAllCharacter } from './allcharacters.js';
 const routes = {
   '/about': './pages/about.html',
   '/character': './pages/character.html',
+  '/details': 'pages/detailsCharacter.html'
 };
 
 const route = async () => {
-  window.event.preventDefault();
- 
-  window.history.pushState({}, '', window.event.target.href);
+  event.preventDefault();
+
+  const href = event.target.getAttribute('href');
+  window.history.pushState({}, '', href);
   const path = window.location.pathname;
+
   const response = await fetch(routes[path]);
-  console.log(path);
   const html = await response.text();
   document.getElementById('root').innerHTML = html;
 
   if (path === '/character') {
     await loadAllCharacter();
   }
-  
- 
 };
 
-window.route = route;
+document.addEventListener('click', (event) => {
+  const href = event.target.getAttribute('href');
+  if (event.target.matches('a') && href !== './index.html') {
+    route();
+  }
+});

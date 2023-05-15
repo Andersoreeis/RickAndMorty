@@ -1,4 +1,4 @@
-.title-protagonist{
+.title-protagonist {
     width: 100%;
     background-color: #272b34;
     display: flex;
@@ -8,56 +8,115 @@
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
 }
-.carrosel{
+
+.carrosel {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
     background-color: #272b34;
     padding: 40px;
-   
+
 }
-.characters-card{
+
+.characters-card {
     width: 300px;
-    height: 400px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
     border-radius: 5px;
     background-color: #3d3e43;
     transition: 0.2s;
-    cursor: pointer;
     
+
 }
 .characters-card:hover{
-    transform: scale(1.1);
-    
+    transform: scale(1.05);
 }
-.character-img{
+
+
+
+.character-img {
     width: 100%;
     height: 70%;
     border-radius: 5px;
 }
-.character-img > img{
+
+.character-img>img {
     width: 100%;
     height: 100%;
     border-radius: 5px;
 }
-.character-data{
+
+.character-data {
     padding: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.character-status{
+
+.details {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.character-name{
+    width: 100%;
+}
+.text-name{
+    color: greenyellow;
+
+}
+
+.linkDetails {
+    background-color: rgba(111, 255, 0, 0.445);
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+
+}
+.linkDetails:hover{
+background-color: transparent;
+border: 2px solid white;
+color: white;
+}
+
+.character-status {
     display: flex;
     align-items: center;
     gap: 5px;
     padding: 3px;
 }
-.status-life{
+
+.status-life {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-  
+
 }
 
 
-.text-name{
+.text-name {
     font-size: 1.7rem;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
@@ -65,13 +124,15 @@
     text-align: center;
     margin: 20px;
 }
-.text-character{
+
+.text-character {
     font-size: 1.1rem;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-  
+
 }
-.p-text-character{
+
+.p-text-character {
     font-size: 1.1rem;
     color: #918d8d;
     font-family: Arial, Helvetica, sans-serif;
