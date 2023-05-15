@@ -1,4 +1,5 @@
 import { loadAllCharacter } from './allcharacters.js';
+import { loadCharacterDetails } from './detailsCharacter.js';
 
 const routes = {
   '/about': './pages/about.html',
@@ -19,6 +20,10 @@ const route = async () => {
 
   if (path === '/character') {
     await loadAllCharacter();
+  }
+
+  if (path === '/details') {
+    await loadCharacterDetails();
   }
 };
 

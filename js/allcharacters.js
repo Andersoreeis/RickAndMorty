@@ -87,8 +87,8 @@ const loadTable = async () => { // manda os novos elementos
     container.appendChild(tableElement);
   });
 
-  // Mover para a posição da tabela
-  container.scrollIntoView({ behavior: "smooth" });
+ 
+  
 };
 
 function renderPagination() {
@@ -105,6 +105,7 @@ function renderPagination() {
     if (currentPage > 1) {
       currentPage--;
       loadTable(); // Carrega a página anterior
+      window.scrollTo(0, document.body.scrollHeight); // Rolagem para o final da página
       renderPagination();
     }
   });
@@ -127,10 +128,15 @@ function renderPagination() {
     pageButton.addEventListener('click', function(event) {
       event.preventDefault(); // Impede a ação padrão de seguir o link
       currentPage = parseInt(this.textContent);
+
       loadTable(); // Carrega a nova página
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Rolagem suave para o topo da página
       renderPagination();
+ 
     });
     pagination.appendChild(pageButton);
+
+    
   }
 
   const nextButton = document.createElement('a');
@@ -141,11 +147,13 @@ function renderPagination() {
     if (currentPage < totalPages) {
       currentPage++;
       loadTable(); // Carrega a próxima página
+      window.scrollTo(0, document.body.scrollHeight); // Rolagem para o final da página
       renderPagination();
     }
   });
   pagination.appendChild(nextButton);
 }
+
 
 function getContainer() {
   return new Promise((resolve) => {

@@ -28,15 +28,23 @@ const createCardCharacter = (character) => { // criação dos elementos
 
     characterName.textContent = character.name.length > maxNameLength ? character.name.substring(0, maxNameLength) + '...' : character.name;
 
-    const details = document.createElement('div')
-    details.classList.add('details')
-    const linkDetails = document.createElement('a')
-    linkDetails.setAttribute('href', '/details')
-    linkDetails.classList.add('linkDetails')
-    linkDetails.textContent = 'Details'
+    const details = document.createElement('div');
+    details.classList.add('details');
+    const linkDetails = document.createElement('a');
+    linkDetails.classList.add('linkDetails');
+    linkDetails.textContent = 'Details';
+    linkDetails.setAttribute('href', '/details');
+    
+    // Usando uma função de callback para capturar o ID do personagem
     linkDetails.addEventListener('click', function (event) {
-        event.preventDefault();
-    })
+        
+
+      event.preventDefault();
+      const clickedCharacterId = character.id;
+      localStorage.setItem('id-character', clickedCharacterId);
+      console.log(clickedCharacterId);
+      // Aqui você pode redirecionar para a página de detalhes ou executar outras ações necessárias.
+    });
 
 
 
