@@ -2,95 +2,70 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="shortcut icon" href="./img/naveespacial.png" type="image/x-icon" width="30px" height="30px">
-    <link rel="stylesheet" href="./css/protagonist.css">
-    <link rel="stylesheet" href="./css/search.css">
-    <link rel="stylesheet" href="./css/about.css">
-    <link rel="stylesheet" href="./css/allcharacter.css">
-    <link rel="stylesheet" href="./css/loading.css">
-    <link rel="stylesheet" href="./css/detailsCharacter.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@500&display=swap" rel="stylesheet">
-    <title>Rick And Mordy</title>
-    <script src="./js/rounters.js" defer type="module"></script>
-    <script src="./js//api.js" defer type="module"></script>
-    <script src="./js//protagonist.js" defer type="module"></script>
-    <script src="./js//allcharacters.js" defer type="module"></script>
-    <script src="./js//loading.js" defer type="module"></script>
-    <script src="./js//search.js" defer type="module"></script>
-    <script src="./js//detailsCharacter.js" defer type="module"></script>
-    <script src="https://kit.fontawesome.com/7dfd3e2b4c.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/protagonist.css">
+  <link rel="stylesheet" href="./css/search.css">
+  <link rel="stylesheet" href="./css/about.css">
+  <link rel="stylesheet" href="./css/allcharacter.css">
+  <link rel="stylesheet" href="./css/loading.css">
+  <link rel="stylesheet" href="./css/detailsCharacter.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./img/naveespacial.png" type="image/x-icon" width="30px" height="30px">
+  <title>Rick And Morty</title>
+  <script src="https://kit.fontawesome.com/7dfd3e2b4c.js" crossorigin="anonymous" defer></script>
+  <script src="./js/rounters.js" defer type="module"></script>
+  <script src="./js/api.js" defer type="module"></script>
+  <script src="./js/protagonist.js" defer type="module"></script>
+  <script src="./js/allcharacters.js" defer type="module"></script>
+  <script src="./js/loading.js" defer type="module"></script>
+  <script src="./js/search.js" defer type="module"></script>
+  <script src="./js/detailsCharacter.js" defer type="module"></script>
 </head>
 
 <body>
-    <div id="loader" class="loader-container"> <!-- Elemento de carregamento com o spinner -->
-        <div class="loader"></div>
-    </div>
-    <header>
-        <img src="./img/logo2.png" class="logo" alt="">
-        <nav>
-            <a href="./index.html">HOME</a>
-            <a href="/about" >ABOUT</a>
-            <a href="/character"> ALL CHARACTERS</a>
-
-
-        </nav>
-    </header>
-    <main id="root">
-        
-        <div class="container-main">
-                <div class="search-container">
-                    <div class="search-button">
-                        <input type="text" id="search-input" placeholder="Search characters..."
-                            class="search-character">
-
-                        <button class="btn-search" id="btn-search">
-                            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
-                </div>
-
+  <div id="loader" class="loader-container">
+    <div class="loader"></div>
+  </div>
+  <header>
+    <a href="./index.html">
+      <img src="./img/logo2.png" class="logo" alt="logo">
+    </a>
+    <nav>
+      <a href="./index.html">HOME</a>
+      <a href="/about">ABOUT</a>
+      <a href="/character">CHARACTERS</a>
+    </nav>
+  </header>
+  <main id="root">
+    <div class="container-main">
+      <div class="search-container">
+        <div class="search-button">
+          <input type="text" id="search-input" placeholder="Search characters..." class="search-character">
+          <button class="btn-search" id="btn-search">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+          </button>
         </div>
-
-        <h1 id="text-search" class="remove"></h1>
-
- <div id="results-container" >
-    <div class="container">
-
-
+      </div>
+    </div>
+    <h1 id="text-search" class="remove"></h1>
+    <div id="results-container">
+      <div class="container">
         <div class="content-home">
-            <p class="text-resume">"Rick and Morty" is an animated comedy and science fiction series that follows
-                the interdimensional adventures of a brilliant and selfish grandfather, Rick, and his insecure
-                grandson, Morty. Together, they face family issues and dangerous situations in different parallel
-                universes.</p>
-            <div class="button-personagens"><a href="/character" >See Character</a></div>
+          <p class="text-resume">"Rick and Morty" is an animated comedy and science fiction series that follows the
+            interdimensional adventures of a brilliant and selfish grandfather, Rick, and his insecure grandson,
+            Morty. Together, they face family issues and dangerous situations in different parallel universes.</p>
+          <div class="button-personagens"><a href="/character">See Character</a></div>
         </div>
         <div class="container-img"></div>
-    </div>
-    <div class="carrosel" id="carrosel"></div>
-
-    <div class="trailer-rick">
+      </div>
+      <div class="carrosel" id="carrosel"></div>
+      <div class="trailer-rick">
         <iframe width="760" height="415" src="https://www.youtube.com/embed/6Zt15L7Gy3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
     </div>
-
-</div> 
-       
-
-        
-
-
-    </main>
-
-
-    <footer>© 2023, 💻 with ❤ by Anderson Reis.</footer>
-
-
-
+  </main>
+  <footer>© 2023, 💻 with ❤ by Anderson Reis.</footer>
 </body>
-
 </html>

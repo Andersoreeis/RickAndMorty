@@ -18,7 +18,7 @@ const loadTable = async () => { // manda os novos elementos
     imgAllCharacter.src = character.image
     
     const nameAllCharacter = document.createElement('div')
-    nameAllCharacter.classList.add('name-allcharacter')
+    nameAllCharacter.classList.add('text-namecharacter')
     nameAllCharacter.textContent = character.name
     localStorage.setItem('name-allcharacter', character.name)
     
@@ -105,7 +105,7 @@ function renderPagination() {
     if (currentPage > 1) {
       currentPage--;
       loadTable(); // Carrega a página anterior
-      window.scrollTo(0, document.body.scrollHeight); // Rolagem para o final da página
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Rolagem suave para o topo da página
       renderPagination();
     }
   });
@@ -147,7 +147,7 @@ function renderPagination() {
     if (currentPage < totalPages) {
       currentPage++;
       loadTable(); // Carrega a próxima página
-      window.scrollTo(0, document.body.scrollHeight); // Rolagem para o final da página
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Rolagem suave para o topo da página
       renderPagination();
     }
   });

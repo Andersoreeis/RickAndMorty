@@ -1,5 +1,5 @@
-  /* Estilos para o spinner */
-  .loader-container {
+/* Estilos para o spinner */
+.loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,20 +11,33 @@
     right: 0;
     bottom: 0;
     z-index: 9999;
-}
-
-.loader {
+  }
+  
+  .loader {
     border: 8px solid #f3f3f3;
     border-top: 8px solid #4adb34;
     border-radius: 50%;
     width: 60px;
     height: 60px;
     animation: spin 1.5s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Estilos adicionais omitidos para brevidade */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Estilos adicionais omitidos para brevidade */
+  
+  /* Estilos responsivos para dispositivos móveis */
+  @media (max-width: 768px) {
+    .loader {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  

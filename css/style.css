@@ -1,117 +1,122 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Bungee', cursive;
-}
-:root{
-    --color-text-nav:#fff;
-    --color-efect:#02ddff;
-}
-a{
+  }
+  
+  :root {
+    --color-text-nav: #fff;
+    --color-efect: #02ddff;
+  }
+  
+  a {
     text-decoration: none;
-   
-}
-body{
-    /* background-image: url("../img/rick1.jpg"); */
+  }
+  
+  body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 100vh;
-   display: grid;
-   grid-template-rows: 100px 1fr  90px;
-}
-::-webkit-scrollbar             /* Para navegadores baseados em Webkit (Chrome, Safari, etc.) */
-{
-  width: 15px;                   /* Largura da barra de rolagem vertical */
-  height: 10px;                  /* Altura da barra de rolagem horizontal */
-}
-
-::-webkit-scrollbar-track       /* A área atrás da barra de rolagem */
-{
-  background: #272b34;           /* Cor de fundo */
-}
-
-::-webkit-scrollbar-thumb       /* A bola deslizante da barra de rolagem */
-{
-  background: #fff;              /* Cor da bola */
-  border-radius: 5px;            /* Borda arredondada */
-}
-header{
+    display: grid;
+    grid-template-rows: 100px 1fr 90px;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 15px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #272b34;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 5px;
+  }
+  
+  header {
     display: flex;
     align-items: center;
     justify-content: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-shadow: 1px 1px 10px rgba(156, 153, 153, 0.676);
-
-
- 
-}
-.logo{
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 1px 1px 10px rgba(156, 153, 153, 0.676);
+  }
+  
+  .logo {
     width: 200px;
     height: 100px;
-}
-header > nav{
+  }
+  
+  header > nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 10px;
     width: 100%;
     gap: 40px;
-}
-nav > a{
+  }
+  
+  nav > a {
     text-decoration: none;
     color: #000;
     transition: 0.5s;
-}
-nav > a:hover{
- color: #6af61f;
-}
-main{
+  }
+  
+  nav > a:hover {
+    color: #6af61f;
+  }
+  
+  main {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-.container{
+  }
+  
+  .container {
     width: 100%;
-    
     background-color: #f6f6f6;
     display: flex;
     justify-content: space-around;
+   
+    gap: 20px;
     align-items: center;
-    padding: 50px;
-    height: 400px;
     
-}
-.container-img{
-  width: 50%;
-  height: 100%;
-  background-image: url('../img/rick-morty.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 500px;
-
-}
-.img-index{
+    height: 400px;
+  }
+  
+  .container-img {
+    width: 50%;
+    height: 100%;
+    background-image: url('../img/rick-morty.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 500px;
+  }
+  
+  .img-index {
     width: 100%;
     height: 100%;
-}
-
-.content-home{
+  }
+  
+  .content-home {
     width: 500px;
     height: 100px;
-   
     display: flex;
     flex-direction: column;
     gap: 30px;
-}
-.text-resume{
+  }
+  
+  .text-resume {
     color: #555;
     font-family: Arial, Helvetica, sans-serif;
-}
-.button-personagens{
+  }
+  
+  .button-personagens {
     border-radius: 5px;
     background-color: #67c932;
     width: 200px;
@@ -120,15 +125,18 @@ main{
     align-items: center;
     justify-content: center;
     transition: 0.2s;
-}
-.button-personagens:hover{
+  }
+  
+  .button-personagens:hover {
     color: rgb(143, 233, 118)c932;
-}
-.button-personagens > a{
+  }
+  
+  .button-personagens > a {
     text-decoration: none;
     color: #f6f6f6;
-}
-.trailer-rick{
+  }
+  
+  .trailer-rick {
     width: 100%;
     height: 100%;
     padding: 50px;
@@ -137,13 +145,13 @@ main{
     justify-content: center;
     background-color: #3d3e43;
     border-bottom: 2px solid rgba(255, 255, 255, 0.144);
-
-}
-iframe{
+  }
+  
+  iframe {
     border-radius: 10px;
-}
-
-
+  }
+  
+ 
 
 
 footer{
@@ -155,3 +163,137 @@ footer{
     font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
 }
+@media (max-width: 768px) {
+    body {
+      grid-template-rows: 80px 1fr 80px; /* Ajusta as alturas das linhas do grid no body */
+    }
+  
+    header {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    .logo {
+      width: 150px;
+      height: 80px;
+    }
+  
+    header > nav {
+      gap: 20px;
+    }
+  
+    main {
+      padding: 20px; /* Reduz o espaçamento interno do main */
+    }
+  
+    .container {
+      padding: 30px; /* Reduz o espaçamento interno do container */
+      height: 500px;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .container-img {
+      width: 100%;
+      background-size: contain;
+      
+    }
+  
+    .content-home {
+      width: 100%;
+      gap: 20px;
+    }
+   
+    .img-index{
+        width: 300px;
+        height: 300px;
+    }
+  
+    .button-personagens {
+      width: 150px;
+      height: 30px;
+      font-size: 0.9rem; /* Reduz o tamanho da fonte no botão */
+    }
+  
+    .trailer-rick {
+      padding: 20px; /* Reduz o espaçamento interno do trailer-rick */
+    }
+  
+    iframe {
+      border-radius: 5px; /* Reduz o raio da borda do iframe */
+      width: 100%;
+      height: 300px;
+    }
+  
+    footer {
+      font-size: 1.2rem; /* Ajusta o tamanho da fonte no footer */
+    }
+  }
+  
+  @media (max-width: 500px) {
+    body {
+      grid-template-rows: 80px 1fr 80px; /* Ajusta as alturas das linhas do grid no body */
+    }
+  
+    header {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    .logo {
+      width: 150px;
+      height: 80px;
+    }
+  
+    header > nav {
+      gap: 20px;
+    }
+  
+    main {
+      padding: 20px; /* Reduz o espaçamento interno do main */
+    }
+  
+    .container {
+      padding: 30px; /* Reduz o espaçamento interno do container */
+      height: 300px;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .container-img {
+      width: 100%;
+      background-size: contain;
+      display: none;
+    }
+  
+    .content-home {
+      width: 100%;
+      gap: 20px;
+    }
+   
+    .img-index{
+        width: 300px;
+        height: 300px;
+    }
+  
+    .button-personagens {
+      width: 150px;
+      height: 30px;
+      font-size: 0.9rem; /* Reduz o tamanho da fonte no botão */
+    }
+  
+    .trailer-rick {
+      padding: 20px; /* Reduz o espaçamento interno do trailer-rick */
+    }
+  
+    iframe {
+      border-radius: 5px; /* Reduz o raio da borda do iframe */
+      width: 100%;
+      height: 300px;
+    }
+  
+    footer {
+      font-size: 1.2rem; /* Ajusta o tamanho da fonte no footer */
+    }
+  }
+  

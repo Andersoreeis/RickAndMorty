@@ -7,19 +7,21 @@
     padding: 10px;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.carrosel {
+  }
+  
+  .carrosel {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap; /* Adicionado para que os itens quebrem para a próxima linha em dispositivos móveis */
     gap: 20px;
     background-color: #272b34;
-    padding: 40px;
+    padding: 20px;
 
-}
-
-.characters-card {
+  }
+  
+  .characters-card {
     width: 300px;
     height: 450px;
     display: flex;
@@ -29,28 +31,25 @@
     border-radius: 5px;
     background-color: #3d3e43;
     transition: 0.2s;
-    
-
-}
-.characters-card:hover{
+  }
+  
+  .characters-card:hover {
     transform: scale(1.05);
-}
-
-
-
-.character-img {
+  }
+  
+  .character-img {
     width: 100%;
     height: 70%;
     border-radius: 5px;
-}
-
-.character-img>img {
+  }
+  
+  .character-img > img {
     width: 100%;
     height: 100%;
     border-radius: 5px;
-}
-
-.character-data {
+  }
+  
+  .character-data {
     padding: 10px;
     width: 100%;
     height: 100%;
@@ -58,27 +57,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.details {
+  }
+  
+  .details {
     width: 100%;
     height: 100%;
-    
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-}
-.character-name{
+  }
+  
+  .character-name {
     width: 100%;
-}
-.text-name{
+  }
+  
+  .text-name {
     color: greenyellow;
-
-}
-
-.linkDetails {
+    font-size: 2rem; /* Aumentado o tamanho do texto para dispositivos móveis */
+  }
+  
+  .linkDetails {
     background-color: rgba(111, 255, 0, 0.445);
     width: 50px;
     height: 50px;
@@ -93,47 +91,123 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.2s;
-
-}
-.linkDetails:hover{
-background-color: transparent;
-border: 2px solid white;
-color: white;
-}
-
-.character-status {
+  }
+  
+  .linkDetails:hover {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+  
+  .character-status {
     display: flex;
     align-items: center;
     gap: 5px;
     padding: 3px;
-}
-
-.status-life {
+  }
+  
+  .status-life {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-
-}
-
-
-.text-name {
+  }
+  
+  .text-name {
     font-size: 1.7rem;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
     margin: 20px;
-}
-
-.text-character {
+  }
+  
+  .text-character {
     font-size: 1.1rem;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-
-}
-
-.p-text-character {
+  }
+  
+  .p-text-character {
     font-size: 1.1rem;
     color: #918d8d;
     font-family: Arial, Helvetica, sans-serif;
-}
+  }
+  
+  /* Media queries para dispositivos móveis */
+  @media (max-width: 768px) {
+    .characters-card {
+      width: 40%;
+      height: 300px;
+    }
+  
+    .carrosel {
+      padding: 20px; /* Reduzido o padding para dispositivos móveis */
+    }
+  
+    .character-img {
+      height: 50%; /* Reduzido o tamanho da imagem para dispositivos móveis */
+    }
+  
+    .text-name {
+      font-size: 1.5rem; /* Ajustado o tamanho do texto para dispositivos móveis */
+      margin: 10px; /* Reduzido o espaçamento do texto para dispositivos móveis */
+    }
+  
+    .text-character {
+      font-size: 1rem; /* Ajustado o tamanho do texto para dispositivos móveis */
+    }
+  
+    .p-text-character {
+      font-size: 1rem; /* Ajustado o tamanho do texto para dispositivos móveis */
+    }
+  
+    .linkDetails {
+      width: 100%; /* Reduzido o tamanho do botão de detalhes para dispositivos móveis */
+      height: 40px;
+      font-size: 1rem; /* Ajustado o tamanho do texto do botão para dispositivos móveis */
+    }
+  
+    .status-life {
+      width: 8px; /* Reduzido o tamanho do status para dispositivos móveis */
+      height: 8px;
+    }
+  }
+  @media (max-width: 500px) {
+    .characters-card {
+      width: 80%;
+      height: 300px;
+    }
+  
+    .carrosel {
+      padding: 20px; /* Reduzido o padding para dispositivos móveis */
+    }
+  
+    .character-img {
+      height: 50%; /* Reduzido o tamanho da imagem para dispositivos móveis */
+    }
+  
+    .text-name {
+      font-size: 1.5rem; /* Ajustado o tamanho do texto para dispositivos móveis */
+      margin: 10px; /* Reduzido o espaçamento do texto para dispositivos móveis */
+    }
+  
+    .text-character {
+      font-size: 1rem; /* Ajustado o tamanho do texto para dispositivos móveis */
+    }
+  
+    .p-text-character {
+      font-size: 1rem; /* Ajustado o tamanho do texto para dispositivos móveis */
+    }
+  
+    .linkDetails {
+      width: 100%; /* Reduzido o tamanho do botão de detalhes para dispositivos móveis */
+      height: 40px;
+      font-size: 1rem; /* Ajustado o tamanho do texto do botão para dispositivos móveis */
+    }
+  
+    .status-life {
+      width: 8px; /* Reduzido o tamanho do status para dispositivos móveis */
+      height: 8px;
+    }
+  }
+  
