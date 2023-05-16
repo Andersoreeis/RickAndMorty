@@ -4,7 +4,7 @@ import { loadCharacterDetails } from './detailsCharacter.js';
 const routes = {
   '/about': './pages/about.html',
   '/character': './pages/character.html',
-  '/details': 'pages/detailsCharacter.html'
+  '/details': './pages/detailsCharacter.html'
 };
 
 const route = async () => {
@@ -23,7 +23,9 @@ const route = async () => {
   }
 
   if (path === '/details') {
+
     await loadCharacterDetails();
+
   }
 };
 

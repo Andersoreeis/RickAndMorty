@@ -155,6 +155,7 @@
 
 
 footer{
+  width: 100%;
     background-color: #3d3e43;
     display: flex;
     align-items: center;
@@ -292,8 +293,6 @@ footer{
       height: 300px;
     }
   
-    footer {
-      font-size: 1.2rem; /* Ajusta o tamanho da fonte no footer */
-    }
+    
   }
   
