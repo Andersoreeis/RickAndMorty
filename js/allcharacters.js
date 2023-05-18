@@ -17,7 +17,7 @@ const loadTable = async () => { // manda os novos elementos
     imgAllCharacter.classList.add('img-allcharacter')
     imgAllCharacter.src = character.image
     
-    const nameAllCharacter = document.createElement('div')
+    const nameAllCharacter = document.createElement('p')
     nameAllCharacter.classList.add('text-namecharacter')
     nameAllCharacter.textContent = character.name
     localStorage.setItem('name-allcharacter', character.name)
