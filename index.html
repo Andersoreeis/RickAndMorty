@@ -22,8 +22,6 @@
   <script src="./js/loading.js" defer type="module"></script>
   <script src="./js/search.js" defer type="module"></script>
   <script src="./js/detailsCharacter.js" defer type="module"></script>
-  <script src="./js/componentIndex.js" defer type="module"></script>
-
 </head>
 
 <body>
@@ -41,7 +39,32 @@
     </nav>
   </header>
   <main id="root">
-    <custom-results-container></custom-results-container>
+    <div class="container-main">
+      <div class="search-container">
+        <div class="search-button">
+          <input type="text" id="search-input" placeholder="Search characters..." class="search-character">
+          <button class="btn-search" id="btn-search">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <h1 id="text-search" class="remove"></h1>
+    <div id="results-container">
+      <div class="container">
+        <div class="content-home">
+          <p class="text-resume">"Rick and Morty" is an animated comedy and science fiction series that follows the
+            interdimensional adventures of a brilliant and selfish grandfather, Rick, and his insecure grandson,
+            Morty. Together, they face family issues and dangerous situations in different parallel universes.</p>
+          <div class="button-personagens"><a href="/character">See Character</a></div>
+        </div>
+        <div class="container-img"></div>
+      </div>
+      <div class="carrosel" id="carrosel"></div>
+      <div class="trailer-rick">
+        <iframe width="760" height="415" src="https://www.youtube.com/embed/6Zt15L7Gy3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
   </main>
   <footer>© 2023, 💻 with ❤ by Anderson Reis.</footer>
 </body>

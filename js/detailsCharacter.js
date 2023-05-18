@@ -135,8 +135,6 @@ const createCharacterDetails = function (character) {
 
 const loadCharacterDetails = async () => {
     const characterId = localStorage.getItem("id-character");
-
-    console.log(characterId);
     try {
         const character = await GetCharacterFilter(Number(characterId));
 
@@ -161,7 +159,6 @@ const renderCharacterDetails = (detailsContainers) => {
 };
 
 export { loadCharacterDetails };
-
 
 
 

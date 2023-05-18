@@ -1,100 +1,93 @@
-// import { GetCharacterForName } from "./api.js";
-// import { ResultsContainer } from './componentIndex.js';
+import { GetCharacterForName } from "./api.js";
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const componentIndex = new ResultsContainer();
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById('search-input');
+  const searchButton = document.getElementById('btn-search');
+  const resultsContainer = document.getElementById('results-container');
 
-//   const searchInput = componentIndex.searchInput;
-//   const searchButton = componentIndex.searchButton;
-//   const resultsContainer = componentIndex.resultsContainer;
+  searchInput.addEventListener('click', function () {
+    resultsContainer.innerHTML = '';
+  });
 
-//   console.log(resultsContainer);
-//   console.log(searchButton);
-//   console.log(searchInput);
+  searchButton.addEventListener('click', performSearch);
+  searchInput.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+      performSearch();
+    }
+  });
 
-//   searchInput.addEventListener('click', function () {
-//     resultsContainer.innerHTML = '';
-//   });
+  async function performSearch() {
+    const searchQuery = searchInput.value.trim();
 
-//   searchButton.addEventListener('click', performSearch);
-//   searchInput.addEventListener('keyup', function (event) {
-//     if (event.key === 'Enter') {
-//       performSearch();
-//     }
-//   });
+    const textSearchValue = document.getElementById('text-search');
+    textSearchValue.classList.add('addItem', 'text-search');
+    textSearchValue.textContent = 'Search Character: ' + searchQuery;
 
-//   async function performSearch() {
-//     const searchQuery = searchInput.value.trim();
+    if (searchQuery !== '') {
+      try {
+        const character = await GetCharacterForName(searchQuery);
+        resultsContainer.innerHTML = '';
 
-//     const textSearchValue = document.getElementById('text-search');
-//     textSearchValue.classList.add('addItem', 'text-search');
-//     textSearchValue.textContent = 'Search Character: ' + searchQuery;
+        if (character) {
+          const cards = character.results.map(createCardCharacter);
+          resultsContainer.classList.add('container-search');
+          resultsContainer.replaceChildren(...cards);
+        } else {
+          const messageElement = document.createElement('p');
+          messageElement.textContent = 'Personagem não encontrado.';
+          resultsContainer.appendChild(messageElement);
+        }
+      } catch (error) {
+        const messageElement = document.createElement('p');
+        messageElement.textContent = 'Character Not Found';
+        messageElement.classList.add('error-message');
+        resultsContainer.appendChild(messageElement);
+      }
+    }
+  }
+});
 
-//     if (searchQuery !== '') {
-//       try {
-//         const character = await GetCharacterForName(searchQuery);
-//         resultsContainer.innerHTML = '';
+const createCardCharacter = (character) => {
+  const characterCard = document.createElement('div');
+  characterCard.classList.add('characters-card');
 
-//         if (character) {
-//           const cards = character.results.map(createCardCharacter);
-//           resultsContainer.classList.add('container-search');
-//           resultsContainer.replaceChildren(...cards);
-//         } else {
-//           const messageElement = document.createElement('p');
-//           messageElement.textContent = 'Personagem não encontrado.';
-//           resultsContainer.appendChild(messageElement);
-//         }
-//       } catch (error) {
-//         const messageElement = document.createElement('p');
-//         messageElement.textContent = 'Character Not Found';
-//         messageElement.classList.add('error-message');
-//         resultsContainer.appendChild(messageElement);
-//       }
-//     }
-//   }
-// });
+  const characterImg = document.createElement('div');
+  characterImg.classList.add('character-img');
 
-// const createCardCharacter = (character) => {
-//   const characterCard = document.createElement('div');
-//   characterCard.classList.add('characters-card');
+  const img = document.createElement('img');
+  img.src = character.image;
 
-//   const characterImg = document.createElement('div');
-//   characterImg.classList.add('character-img');
+  const characterData = document.createElement('div');
+  characterData.classList.add('character-data');
 
-//   const img = document.createElement('img');
-//   img.src = character.image;
+  const characterName = document.createElement('div');
+  characterName.classList.add('character-name', 'text-name');
+  const maxNameLength = 16;
+  characterName.textContent =
+    character.name.length > maxNameLength
+      ? character.name.substring(0, maxNameLength) + '...'
+      : character.name;
 
-//   const characterData = document.createElement('div');
-//   characterData.classList.add('character-data');
+  const details = document.createElement('div');
+  details.classList.add('details');
+  const linkDetails = document.createElement('a');
+  linkDetails.classList.add('linkDetails');
+  linkDetails.textContent = 'Details';
+  linkDetails.setAttribute('href', '/details');
+  
+  // Usando uma função de callback para capturar o ID do personagem
+  linkDetails.addEventListener('click', function (event) {
+    event.preventDefault();
+    const clickedCharacterId = character.id;
+    localStorage.setItem('id-character', clickedCharacterId);
+    console.log(clickedCharacterId);
+    // Aqui você pode redirecionar para a página de detalhes ou executar outras ações necessárias.
+  });
 
-//   const characterName = document.createElement('div');
-//   characterName.classList.add('character-name', 'text-name');
-//   const maxNameLength = 16;
-//   characterName.textContent =
-//     character.name.length > maxNameLength
-//       ? character.name.substring(0, maxNameLength) + '...'
-//       : character.name;
+  characterCard.append(characterImg, characterData, details);
+  characterImg.append(img);
+  characterData.append(characterName, details);
+  details.append(linkDetails);
 
-//   const details = document.createElement('div');
-//   details.classList.add('details');
-//   const linkDetails = document.createElement('a');
-//   linkDetails.classList.add('linkDetails');
-//   linkDetails.textContent = 'Details';
-//   linkDetails.setAttribute('href', '/details');
-
-//   // Usando uma função de callback para capturar o ID do personagem
-//   linkDetails.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     const clickedCharacterId = character.id;
-//     localStorage.setItem('id-character', clickedCharacterId);
-//     console.log(clickedCharacterId);
-//     // Aqui você pode redirecionar para a página de detalhes ou executar outras ações necessárias.
-//   });
-
-//   characterCard.append(characterImg, characterData, details);
-//   characterImg.append(img);
-//   characterData.append(characterName, details);
-//   details.append(linkDetails);
-
-//   return characterCard;
-// };
+  return characterCard;
+};
