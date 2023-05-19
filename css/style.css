@@ -59,6 +59,9 @@
     width: 100%;
     gap: 40px;
   }
+  .btn-menu{
+    display: none;
+  }
   
   nav > a {
     text-decoration: none;
@@ -246,10 +249,14 @@ footer{
       width: 150px;
       height: 80px;
     }
-  
-    header > nav {
-      gap: 20px;
+    .btn-menu{
+      display: block;
+      margin-right: 15px;
     }
+    header > nav > a{
+      display: none;
+    }
+
   
     main {
       padding: 20px; /* Reduz o espaçamento interno do main */

@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="./css/allcharacter.css">
   <link rel="stylesheet" href="./css/loading.css">
   <link rel="stylesheet" href="./css/detailsCharacter.css">
+  <link rel="stylesheet" href="./css/menu.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@500&display=swap" rel="stylesheet">
+
   <link rel="shortcut icon" href="./img/naveespacial.png" type="image/x-icon" width="30px" height="30px">
   <title>Rick And Morty</title>
   <script src="https://kit.fontawesome.com/7dfd3e2b4c.js" crossorigin="anonymous" defer></script>
@@ -22,12 +24,30 @@
   <script src="./js/loading.js" defer type="module"></script>
   <script src="./js/search.js" defer type="module"></script>
   <script src="./js/detailsCharacter.js" defer type="module"></script>
+  <script src="./js/menu.js" defer type="module"></script>
 </head>
 
 <body>
   <div id="loader" class="loader-container">
     <div class="loader"></div>
   </div>
+
+  <div class="menuBar">
+    <div>
+        <div class="btnVoltar"><i class="fa-solid fa-x"></i></div>
+
+    </div>
+    <ul class="lista-menu">
+        <li><a href="./index.html" class="linkMenu1">HOME</a></li>
+        <li><a href="/about" class="linkMenu2">ABOUT</a></a></li>
+        <li> <a href="/character" class="linkMenu3">CHARACTERS</a></a></li>
+    </ul>
+
+</div>
+<div class="paredeFechar"></div>
+
+
+
   <header>
     <a href="./index.html">
       <img src="./img/logo2.png" class="logo" alt="logo">
@@ -36,7 +56,11 @@
       <a href="./index.html">HOME</a>
       <a href="/about">ABOUT</a>
       <a href="/character">CHARACTERS</a>
+    
     </nav>
+    <div class="btn-menu">
+      <i class="fa-solid fa-bars"></i>
+    </div>
   </header>
   <main id="root">
     <div class="container-main">

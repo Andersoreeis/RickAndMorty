@@ -1,0 +1,125 @@
+
+.lista-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.lista-menu > li {
+    width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ 
+ }
+.lista-menu > li > a{
+   width: 100%;
+    border-bottom: 1px solid gray;
+    display: flex;
+     align-items: center;
+     justify-content: center;
+     color: black;
+
+}
+
+
+.paredeFechar{
+    position: fixed;
+    right: -3500px;
+   
+}
+.menuBar{
+    width: 100vw;
+    background-color:#fff;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: -3500px;
+    z-index: 7;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: 0.3s;
+    z-index: 7;
+}
+.menuBar>div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+
+}
+.btnVoltar{
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    color: var(--color-cinza);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnVoltar>div{
+    border-bottom: 2px solid black;
+    width: 20px;
+    
+}
+.menuBar>ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.menuBar>ul>li{
+    
+    border-bottom: 1px solid var(--color-cinza);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    
+   
+    
+}
+.menuBar>ul>li>a{
+   padding-left: 10px;
+    width: 100%;
+    height: 50px;
+}
+.menuBar>ul>li:hover{
+    color: var(--cor-principal);
+    
+   
+}
+.btn-menu.active{}
+.menuBar.active{
+    left: 0px;
+}
+.paredeFechar.active{
+    right: 0px;
+}
+.btnVoltar.active{
+
+
+}
+.linkMenu1.active{
+
+}
+.linkMenu2.active{
+
+}
+
+.linkMenu3.active{
+
+}
+
+.linkMenu4.active{
+
+}
+
+.linkMenu5.active{
+
+}
+

@@ -8,7 +8,7 @@
 - [x]  A página funciona em dispositivos diferentes?
 - [x]  Foi consumida a API escolhida?
 - [x]  Foi criado web componentes?
-- [x]  Foi criado um padrão de roteamente para as paginas?
+- [x]  Foi criado um padrão de roteamente para as paginas?"
 - [x]  As funções foram criadas seguindo à boa prática de responsabilidade única?
 - [x]  Quando possível, foi criado funções puras?
 - [x]  O projeto está publicado?

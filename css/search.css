@@ -48,14 +48,14 @@
   .search-character:focus {
     border: none;
     outline: none;
-    outline: 1px solid greenyellow;
+    outline: 1px solid rgb(81, 194, 81);
     background-color: rgba(172, 255, 47, 0.196);
   }
   
   .btn-search {
     width: 5%;
     height: 50px;
-    color: greenyellow;
+    color: rgb(81, 194, 81);
     border: none;
     background-color: white;
     border-radius: 10px;
@@ -76,7 +76,7 @@
   .text-search {
     margin: 30px;
     margin-left: 60px;
-    color: greenyellow;
+    color: rgb(81, 194, 81);
     font-family: Arial, Helvetica, sans-serif;
   }
   
