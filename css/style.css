@@ -188,7 +188,6 @@ footer{
     }
   
     main {
-      padding: 20px; /* Reduz o espaçamento interno do main */
     }
   
     .container {
@@ -259,7 +258,8 @@ footer{
 
   
     main {
-      padding: 20px; /* Reduz o espaçamento interno do main */
+      
+      width: 100%;
     }
   
     .container {

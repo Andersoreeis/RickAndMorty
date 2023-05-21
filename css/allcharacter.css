@@ -1,9 +1,9 @@
 .container-allcharacter-main {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
-  margin: 5%;
+ width: 100%;
 }
 
 .table-characters {
@@ -25,7 +25,6 @@
   justify-content: space-around;
   padding: 1%;
   font-family: Arial, Helvetica, sans-serif;
-  cursor: pointer;
   padding-left: 10%;
 }
 
@@ -36,12 +35,15 @@
 }
 
 .container-allcharacter {
-  width: 90%;
+
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 2%;
   font-size: 1.2vw;
   flex-direction: column;
+  width: 100%;
+
 }
 
 .color-status-dead {
@@ -102,7 +104,7 @@
 
 /* parte da páginação */
 #pagination {
-  margin-top: 2%;
+  margin: 2%;
   width: 100%;
   display: flex;
   align-items: center;
