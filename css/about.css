@@ -10,8 +10,7 @@
     padding: 50px;
     width: 80%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.42);
@@ -30,11 +29,11 @@
   }
   
   .container-about-img {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    height: 200px;
+   
   }
 
   .container-about-img > img {
